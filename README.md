@@ -27,6 +27,23 @@ It was trained with QLoRA distillation over 10 rounds, using labels from the ope
 The training data is synthetic: agent tasks, function calling with invented tool schemas, and `web.search` / `web.fetch` style browsing.
 The LoRA adapter (r=8, alpha=16, on q_proj/v_proj) was merged into the bf16 base weights. This repository holds the full merged model in safetensors, so no PEFT is needed at inference.
 
+## Download
+
+| source | link |
+|---|---|
+| ModelScope | https://modelscope.cn/models/wzhnichen/nichen-V1 |
+| Hugging Face | https://huggingface.co/wzhnichen/nichen-V1 |
+| GitHub Release (all model files as assets) | https://github.com/wzhnichen/nichen-V1/releases/tag/v1.0 |
+
+```bash
+# ModelScope
+modelscope download --model wzhnichen/nichen-V1 --local_dir ./nichen-V1
+# Hugging Face
+hf download wzhnichen/nichen-V1 --local-dir ./nichen-V1
+# GitHub Release
+gh release download v1.0 -R wzhnichen/nichen-V1 -D ./nichen-V1
+```
+
 ## Training summary
 
 | item | value |
@@ -116,6 +133,10 @@ nichen-V1 是基于 [Qwen/Qwen3-4B](https://modelscope.cn/models/Qwen/Qwen3-4B) 
 训练方式是 QLoRA 蒸馏，共 10 轮，标注来自开源权重教师模型 **DeepSeek-V4.1-Flash-1017**。
 训练数据全部为合成数据，涵盖 Agent 任务、使用虚构工具 schema 的函数调用，以及 `web.search` / `web.fetch` 式的网页检索。
 LoRA 适配器（r=8，alpha=16，作用于 q_proj/v_proj）已合并进 bf16 基座权重。本仓库提供完整的 safetensors 模型，推理时不需要 PEFT。
+
+## 下载
+
+ModelScope：https://modelscope.cn/models/wzhnichen/nichen-V1 ｜ Hugging Face：https://huggingface.co/wzhnichen/nichen-V1 ｜ GitHub Release（全部模型文件作为附件）：https://github.com/wzhnichen/nichen-V1/releases/tag/v1.0 。下载命令见上文英文部分的 Download。
 
 ## 训练概要
 
